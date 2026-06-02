@@ -295,6 +295,7 @@ void mips::getMIPSTargetFeatures(const Driver &D, const llvm::Triple &Triple,
     // MIPS cpu i6400 and i6500 support MSA (Mips SIMD Architecture)
     // by default.
     Features.push_back("+msa");
+    Features.push_back("+eva");
   }
 
   if (!UseAbiCalls)

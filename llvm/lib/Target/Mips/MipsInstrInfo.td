@@ -2192,6 +2192,10 @@ let DecoderNamespace = "COP3_" in {
   def SYNC : MMRel, StdMMR6Rel, SYNC_FT<"sync">, SYNC_FM, ISA_MIPS2;
   def SYNCI : MMRel, StdMMR6Rel, SYNCI_FT<"synci", mem_simm16>, SYNCI_FM,
               ISA_MIPS32R2;
+
+  def : MipsInstAlias<"sync_wmb", (SYNC 0x4), 1>, ISA_MIPS32R2;
+  def : MipsInstAlias<"sync_acquire", (SYNC 0x11), 1>, ISA_MIPS32R2;
+  def : MipsInstAlias<"sync_release", (SYNC 0x12), 1>, ISA_MIPS32R2;
 }
 
 let AdditionalPredicates = [NotInMicroMips] in {
